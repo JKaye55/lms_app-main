@@ -114,12 +114,12 @@ if (!empty($sweetAlertConfig)) {
   exit;  // Ensure no further processing happens
 }
  
- 
+
 ?>
 <div class="container custom-container rounded-3 shadow my-5 p-3 px-5">
   <h3 class="text-center mt-4">Registration Form</h3>
   <form method="post" action="" enctype="multipart/form-data" novalidate>
-    <!-- Step 1 -->
+    <!-- Step 1-->
     <div class="form-step form-step-active" id="step-1">
       <div class="card mt-4">
         <div class="card-header bg-info text-white">Account Information</div>
