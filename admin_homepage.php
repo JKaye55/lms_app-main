@@ -1,18 +1,44 @@
+<?php
+session_start();
+
+require_once('classes/database.php');
+$con = new database();
+
+$sweetAlertConfig = ""; //Initialize SweetAlert script variable
+
+if (!isset($_SESSION['user_id'])) {
+
+  header('Location: index.php ');
+ exit();
+  }
+  
+
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Correct Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="./package/dist/sweetalert2.css"> <!-- Correct Bootstrap Icons CSS -->
   <title>Borrowers</title>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <div class="d-flex ms-auto">
+      <a href="logout.php" class="btn btn-outline-light">Logout</a>
+    </div>
+  </div>
+</nav>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Library Management System (Admin)</a>
-          <a class="btn btn-outline-light ms-auto" href="add_authors.html">Add Authors</a>
-          <a class="btn btn-outline-light ms-2" href="add_genres.html">Add Genres</a>
+          <a class="btn btn-outline-light ms-auto" href="add_authors.php">Add Authors</a>
+          <a class="btn btn-outline-light ms-2" href="add_genres.php">Add Genres</a>
           <a class="btn btn-outline-light ms-2" href="add_books.html">Add Books</a>
           <div class="dropdown ms-2">
             <button class="btn btn-outline-light dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -287,7 +313,8 @@
     </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script> <!-- Add Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script> <!-- Correct Bootstrap JS -->
+   <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+  <script src="./package/dist/sweetalert2.js"></script>
+  <?php echo $sweetAlertConfig; ?>
 </body>
 </html>

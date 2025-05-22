@@ -66,6 +66,71 @@ class database{
  
     }
  
- 
+ function loginEmail($email, $password) {
+    $con= $this->opencon();
+    $stmt=$con->prepare("SELECT * FROM Users Where user_email=?");
+    $stmt->execute([$email]);
+    $user=$stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['user_password'])){
+return $user;
+    }else{
+        return false;
+    }
+
 }
+
+
+function addAuthors( $authorFN, $authorLN, $authorbirthday, $authornat){
+
+
+$con = $this->opencon();
+ 
+        try {
+            $con->beginTransaction();
+ 
+            $stmt = $con->prepare("INSERT INTO Authors (author_FN, author_LN, author_birthday, author_nat) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$authorFN,  $authorLN, $authorbirthday, $authornat]);
+ 
+
+                        $authorID = $con->lastInsertId();
+
+            $con->commit();
+ 
+            return $authorID;
+ 
+        } catch (PDOException $e) {
+ 
+            $con->rollback();
+            return false;
+ 
+        }
+ 
+    }
+
+function addGenres($genrename){
+    $con = $this->opencon();
+ 
+        try {
+            $con->beginTransaction();
+ 
+            $stmt = $con->prepare("INSERT INTO Genres (genre_name) VALUES (?)");
+            $stmt->execute([$genrename]);
+ 
+
+                        $genreID = $con->lastInsertId();
+
+            $con->commit();
+ 
+            return $genreID;
+ 
+        } catch (PDOException $e) {
+ 
+            $con->rollback();
+            return false;
+ 
+        }
+}
+}
+
 ?>

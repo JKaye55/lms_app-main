@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +9,13 @@
   <title>My Borrowed Books</title>
 </head>
 <body> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <div class="d-flex ms-auto">
+      <a href="logout.php" class="btn btn-outline-light">Logout</a>
+    </div>
+  </div>
+</nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Library Management System</a>

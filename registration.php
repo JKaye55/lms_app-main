@@ -1,7 +1,6 @@
 <?php
  
  
- 
 require_once('classes/database.php');
  
  
@@ -23,6 +22,7 @@ if (isset($_POST['multisave'])) {
   $birthday = $_POST['birthday'];
   $sex = $_POST['sex'];
   $phone = $_POST['phone'];
+  
  
  
  
@@ -258,6 +258,10 @@ if (!empty($sweetAlertConfig)) {
       <button type="submit" name="multisave" class="btn btn-primary mt-3">Sign Up</button>
       <a class="btn btn-outline-danger mt-3" href="index.php">Go Back</a>
     </div>
+       <div class="my-3 text-end">
+        <span>Have an account?</span>
+        <a href="login.php" class="btn btn-link p-0 align-baseline">Login Now</a>
+      </div>
   </form>
 </div>
  
@@ -506,6 +510,8 @@ $(document).ready(function(){
 
 
 </script>
+
+
 
 
  
